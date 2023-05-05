@@ -1,0 +1,318 @@
+/* General styles */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+h1 {
+  font-family: 'comics', sans-serif;
+  position: fixed;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.7); Add this line for a semi-transparent black background */
+  border: solid gray;
+  padding: 10px;
+  text-align: center;
+  color: white; /* Change this line to set the text color to white */
+}
+
+
+h3 {
+  background-color: black;
+
+}
+
+/* Main container */
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar menu */
+.sidemenu {
+  background-image: url('multicomics.jpeg');
+  margin-top: 55px;
+  border: solid gray;
+  width: 200px;
+  top: 30px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+}
+
+.box {
+  width: 140px;
+  height: auto;
+  float: left;
+  transition: .5s linear;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 15px;
+  text-align: center;
+  margin: 0 5px;
+  background-color: black;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.box:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(100%);
+}
+
+.box:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+}
+
+.box:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.box:hover:before {
+  border-color: white;
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .3s;
+}
+
+.box:hover:after {
+  border-color: white;
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .5s;
+}
+
+button {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+.sidemenu-button{
+  margin-top: 20px;
+}
+
+.sidemenu-select{
+  margin-top: 20px;
+}
+/* Chatbox */
+.chatbox {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  margin-bottom: 10px;
+  max-width: 70%;
+}
+
+.chat-message.chatgpt {
+  align-self: flex-start;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.avatar.chatgpt {
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+.message {
+  background-color: #e5e5ea;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-width: 90%;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-holder {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+
+.chat-input-textarea {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #2980b9;
+  padding: 0 10px;
+  outline: none;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.1);
+  resize: none;
+  flex-grow: 1;
+  width: 500px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 824px) {
+  .chat-input-textarea {
+  width: 100%;
+  }
+  }
+
+  @media screen and (max-width: 768px) {
+  .App {
+  flex-direction: column;
+  }
+
+  .sidemenu {
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  }
+
+  .chatbox {
+  margin-top: 20px;
+  border-left: none;
+  width: 100%;
+  }
+  }
+
+/* src/App.css */
+/* ... */
+
+/* Iron Man */
+.chatbox.IronMan {
+  background-color: #aa0505;
+  background-image: linear-gradient(120deg, #aa0505 50%, #c30d0d 100%);
+}
+
+.chatbox.IronMan .chat-message .message {
+  background-color: #fbca03;
+  color: black;
+}
+
+/* Captain America */
+.chatbox.CaptainAmerica {
+  background-color: #1a237e;
+  background-image: linear-gradient(120deg, #1a237e 50%, #0d47a1 100%);
+}
+
+.chatbox.CaptainAmerica .chat-message .message {
+  background-color: #b71c1c;
+  color: white;
+}
+
+/* Spiderman */
+.chatbox.Spiderman {
+  background-color: #c62828;
+  background-image: linear-gradient(120deg, #c62828 50%, #d32f2f 100%);
+}
+
+.chatbox.Spiderman .chat-message .message {
+  background-color: #1a237e;
+  color: white;
+}
+
+/* Hulk */
+.chatbox.Hulk {
+  background-color: green;
+  background-image: linear-gradient(120deg, #2e7d32 50%, #388e3c 100%);
+}
+
+.chatbox.Hulk .chat-message .message {
+  background-color: purple;
+  color: white;
+}
+
+/* Batman */
+.chatbox.Batman {
+  background-color: #000;
+  background-image: linear-gradient(120deg, #000 50%, #212121 100%);
+}
+
+.chatbox.Batman .chat-message .message {
+  background-color: #fdd835;
+  color: black;
+}
+
+/* Superman */
+.chatbox.Superman {
+  background-color: #1f50a0;
+  background-image: linear-gradient(120deg, #1f50a0 50%, #2c5ca5 100%);
+}
+
+.chatbox.Superman .chat-message .message {
+  background-color: #d40026;
+  color: white;
+}
+
+/* Wonder Woman */
+.chatbox.WonderWoman {
+  background-color: #ae1a28;
+  background-image: linear-gradient(120deg, #ae1a28 50%, #bf2a39 100%);
+}
+
+.chatbox.WonderWoman .chat-message .message {
+  background-color: #1f50a0;
+  color: white;
+}
+
+/* Flash */
+.chatbox.Flash {
+  background-color: #d40026;
+  background-image: linear-gradient(120deg, #d40026 50%, #e21e31 100%);
+}
+
+.chatbox.Flash .chat-message .message {
+  background-color: #ffcc00;
+  color: black;
+}
